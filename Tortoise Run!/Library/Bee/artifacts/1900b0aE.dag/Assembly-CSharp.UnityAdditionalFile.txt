@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-E:\GIT\OwO_Jam\Tortoise Run!
-=======
-D:\GitKraken\OwO_Jam\Tortoise Run!
->>>>>>> Nate
