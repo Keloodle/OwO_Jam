@@ -5,17 +5,18 @@ using UnityEngine.UI;
 
 public class BarScript : MonoBehaviour
 {
+    [Header("References")]
+    public PlayerController controller;
     public Slider slider;
 
     public float moveSpeed;
-    public float moveSpeedSet;
     public bool toggle = false;
     void Start()
     {
         slider = GetComponent<Slider>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         slider.value += moveSpeed * Time.deltaTime;
         if (slider.value >= 1)
@@ -29,11 +30,11 @@ public class BarScript : MonoBehaviour
 
         if (!toggle)
         {
-            moveSpeed = moveSpeedSet;
+            moveSpeed = controller.moveSpeedSet;
         }
         else if (toggle)
         {
-            moveSpeed = -moveSpeedSet;
+            moveSpeed = -controller.moveSpeedSet;
         }
     }
 }
