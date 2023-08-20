@@ -62,8 +62,12 @@ sysinfo.txt
 crashlytics-build.properties
 
 
-Tortoise Run!/ProjectSettings/
-
-Tortoise Run!/obj/
-
 Tortoise Run!/Library/
+
+Tortoise Run!/Logs/
+
+Tortoise Run!/obj/Debug/
+
+Tortoise Run!/UserSettings/Layouts/
+
+Tortoise Run!/UserSettings/
