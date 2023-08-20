@@ -787,11 +787,13 @@ MonoBehaviour:
   barScript: {fileID: 1284339758}
   targetScript: {fileID: 1712044868}
   turtle1: {fileID: 1326731150}
-  turtle1MoveSpeed: 0.001
+  turtle1MoveSpeed: 0.005
+  turtle1MoveSpeedDefault: 0.005
+  turtle1MoveSpeedIncrease: 0.005
   combo: 0
   moveSpeedSet: 0.5
   moveSpeedStart: 0.5
-  moveSpeedIncrease: 0.25
+  moveSpeedIncrease: 0.1
   resetTime: 0.5
 --- !u!1 &1409084604
 GameObject:
@@ -994,6 +996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnTarget: 0
+  image: {fileID: 0}
 --- !u!50 &1484705379
 Rigidbody2D:
   serializedVersion: 4
@@ -1194,6 +1197,7 @@ MonoBehaviour:
   controller: {fileID: 1403632546}
   col: {fileID: 0}
   rectTransform: {fileID: 0}
+  image: {fileID: 0}
   targetSpawnPos: 0
   colDefaultSize: {x: 0, y: 0}
   rectDefaultSize: {x: 0, y: 0}

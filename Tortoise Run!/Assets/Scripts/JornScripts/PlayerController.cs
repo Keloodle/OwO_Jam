@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,7 +14,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Turtles")]
     public GameObject turtle1;
-    public float turtle1MoveSpeed = 0.01f;
+    public float turtle1MoveSpeed = 0.001f;
+    public float turtle1MoveSpeedDefault = 0.001f;
+    public float turtle1MoveSpeedIncrease = 0.01f;
 
     [Header("Player Stats")]
     public float combo = 0;
@@ -35,7 +38,7 @@ public class PlayerController : MonoBehaviour
                     combo++;
                     StartCoroutine(PauseTime());
                     //turtle1.transform.position = new Vector3(turtle1.transform.position.x, turtle1.transform.position.y, turtle1.transform.position.z + (turtle1MoveSpeed*=combo));
-                    turtle1MoveSpeed *= combo;
+                    turtle1MoveSpeed += turtle1MoveSpeedIncrease;
 
 				} 
                 else if (!hit.OnTarget) 
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour
                     combo = 0;
                     Debug.Log("reset");
 					StartCoroutine(PauseTime());
+					turtle1MoveSpeed = turtle1MoveSpeedDefault;
 				}
             }
         }
@@ -50,8 +54,24 @@ public class PlayerController : MonoBehaviour
     IEnumerator PauseTime()
     {
         Time.timeScale = 0;
+        DisableSlider();
 		yield return new WaitForSecondsRealtime(resetTime);
 		targetScript.RespawnTarget();
-        Time.timeScale = 1;
+        EnableSlider();
+		Time.timeScale = 1;
+	}
+
+    void DisableSlider()
+    {
+        targetScript.image.enabled = false;
+        hit.image.enabled = false;
+        barScript.slider.transform.GetChild(1).GetComponent<Image>().enabled = false;
+    }
+
+    void EnableSlider()
+    {
+		targetScript.image.enabled = true;
+		hit.image.enabled = true;
+		barScript.slider.transform.GetChild(1).GetComponent<Image>().enabled = true;
 	}
 }

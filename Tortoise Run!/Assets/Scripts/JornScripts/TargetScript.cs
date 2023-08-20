@@ -9,6 +9,7 @@ public class TargetScript : MonoBehaviour
     public PlayerController controller;
     public BoxCollider2D col;
     public RectTransform rectTransform;
+    public Image image;
 
     [Header("Local Attributes")]
     public float targetSpawnPos;
@@ -25,6 +26,8 @@ public class TargetScript : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         colDefaultSize = new Vector2 (col.size.x,col.size.y);
         rectDefaultSize = new Vector2 (rectTransform.sizeDelta.x,rectTransform.sizeDelta.y);
+
+        image = GetComponent<Image>();
         RespawnTarget();
 
     }
